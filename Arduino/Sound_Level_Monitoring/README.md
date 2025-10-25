@@ -1,56 +1,67 @@
-Sound Monitor
+# Sound Monitor with LED, Buzzer, and LCD
 
-Sound Monitor is an Arduino-based project that measures environmental sound intensity using a KY-038 sound sensor. The system displays the sound level on an LCD 1602 with I2C, changes an RGB LED’s color according to the intensity, and activates a buzzer for loud sounds.
+**Sound Monitor** is an Arduino project that measures sound intensity using a KY-038 sensor, displays the sound level on an LCD 1602 (I2C), and uses an RGB LED and buzzer to indicate different sound levels.
 
-Goal
+## Goal
 
 Create a system that:
-	•	Measures sound intensity using a KY-038 sound sensor.
-	•	Converts the sound signal to an approximate decibel (dB) value.
-	•	Displays the sound level on an LCD 1602 with I2C.
-	•	Changes RGB LED color based on sound intensity.
 
-Behavior
-	•	Sound level < 40 dB → LED turns blue, buzzer OFF.
-	•	Sound level between 40–70 dB → LED turns green, buzzer OFF.
-	•	Sound level > 70 dB → LED turns red, buzzer ON continuously.
+- Measures sound intensity using a KY-038 sound sensor.
+- Converts sound signal to an approximate decibel (dB) value.
+- Shows the sound level on an LCD 1602 with I2C.
+- Changes RGB LED color based on sound intensity.
+- Activates a buzzer if the sound exceeds a certain threshold.
 
-Required Components
-	•	Arduino Uno board
-	•	KY-038 sound sensor module
-	•	RGB LED module (KY-016 or similar)
-	•	Active buzzer module
-	•	LCD 1602 with I2C
-	•	Jumper wires
-	•	Breadboard
+## Behavior
 
-Required Library
-	•	LiquidCrystal_I2C – for controlling the LCD.
+- Sound level < 40 dB → LED turns **blue**, buzzer **OFF**.
+- Sound level between 40–70 dB → LED turns **green**, buzzer **OFF**.
+- Sound level > 70 dB → LED turns **red**, buzzer **ON** continuously.
 
-Installation
-	1.	Open Arduino IDE → Sketch → Include Library → Manage Libraries…
-	2.	Search for LiquidCrystal I2C.
-	3.	Install the library by Frank de Brabander or similar.
+## Required Components
 
-Wiring
+- Arduino Uno board  
+- KY-038 sound sensor module  
+- RGB LED module (KY-016 or similar)  
+- Active buzzer module  
+- LCD 1602 with I2C  
+- Jumper wires  
+- Breadboard  
 
-Component	Pin on Arduino Uno
-KY-038 Sound Sensor	A0
-RGB LED Red	D9
-RGB LED Green	D10
-RGB LED Blue	D11
-Buzzer	D7
-LCD SDA	A4
-LCD SCL	A5
+## Required Library
 
-Adjust pins if needed according to your setup.
+- `LiquidCrystal_I2C` for controlling the LCD.  
 
-Usage
-	1.	Clone the repository:
+### Installation
 
-git clone https://github.com/yourusername/SoundMonitor.git
+1. Open Arduino IDE.
+2. Go to **Sketch → Include Library → Manage Libraries…**
+3. Search `"LiquidCrystal I2C"`.
+4. Install the library by Frank de Brabander (or similar).
 
-	2.	Open SoundMonitor.ino in Arduino IDE.
-	3.	Upload the sketch to your Arduino Uno.
-	4.	Open Serial Monitor at 9600 baud (optional) to see sensor readings.
-	5.	Observe the LCD display, LED color changes, and buzzer behavior according to the sound levels.
+## Wiring
+
+| Component     | Arduino Pin |
+|---------------|-------------|
+| KY-038 Signal | A0          |
+| RGB LED Red   | D9          |
+| RGB LED Green | D10         |
+| RGB LED Blue  | D11         |
+| Buzzer        | D7          |
+| LCD SDA       | A4          |
+| LCD SCL       | A5          |
+
+> Adjust pins if necessary for your board setup.
+
+## Usage
+
+1. Connect all components as per the wiring table.
+2. Open the Arduino sketch `SoundMonitor.ino` in Arduino IDE.
+3. Upload the sketch to your Arduino Uno.
+4. Open the Serial Monitor at 9600 baud (optional) to check debug information.
+5. Watch the LCD for real-time sound levels and the RGB LED/buzzer for feedback.
+
+## Notes
+
+- Calibration may be required for accurate decibel readings.
+- The LED and buzzer thresholds can be adjusted in the code.

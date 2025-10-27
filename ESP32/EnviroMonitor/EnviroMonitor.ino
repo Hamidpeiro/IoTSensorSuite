@@ -19,7 +19,7 @@ String serverName = "http://api.thingspeak.com/update?api_key=REPLACE_WITH_YOUR_
 
 // Timer setup
 unsigned long lastTime = 0;
-const unsigned long timerDelay = 1000; // 15 seconds
+const unsigned long timerDelay = 1000; // 1 second
 
 // DHT Sensor setup
 #define DHT_PIN 26
